@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frat Alert - Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: var(--dark-accent);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+        }
+        
+        .form-control {
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #333;
+            background-color: #222;
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: var(--accent-color);
+        }
+        
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .success-message {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><span class="logo-text">FRAT<span class="alert-text">ALERT</span></span></a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Form Section -->
+    <section class="contact-page" style="padding-top: 120px;">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            
+            <div class="contact-container">
+                <div class="contact-header">
+                    <h3>Interested in Frat Alert?</h3>
+                    <p>Fill out the form below and we'll get back to you within 24 hours</p>
+                </div>
+                
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="(123) 456-7890" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fraternity">Fraternity/Sorority Name</label>
+                        <input type="text" id="fraternity" class="form-control" placeholder="Alpha Beta Gamma">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control" placeholder="Tell us about your chapter and what you're looking for..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-large" style="margin-top: 20px;">Send Message</button>
+                </form>
+                
+                <a href="index.html" class="back-link">← Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Frat Alert. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize EmailJS
+            // You'll need to sign up at emailjs.com and get your own service ID, template ID, and user ID
+            emailjs.init("ZQu_g-okEQlm5azLL"); // Replace with your actual EmailJS user ID
+            
+            // Handle form submission
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const phone = document.getElementById('phone').value;
+                    const fraternity = document.getElementById('fraternity').value;
+                    const message = document.getElementById('message').value;
+                    
+                    // Prepare template parameters
+                    const templateParams = {
+                        to_email: 'chaselobosco@gmail.com',
+                        from_name: name,
+                        from_email: email,
+                        phone: phone,
+                        fraternity: fraternity,
+                        message: message
+                    };
+                    
+                    // Show loading state
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    const originalButtonText = submitButton.textContent;
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Sending...';
+                    
+                    // Send the email using EmailJS
+                    emailjs.send('service_8rq4ywn', 'template_znf8tvb', templateParams)
+                        .then(function(response) {
+                            console.log('SUCCESS!', response.status, response.text);
+                            
+                            // Show success message
+                            form.innerHTML = `
+                                <div class="success-message">
+                                    <i class="fas fa-check-circle success-icon"></i>
+                                    <h3>Message Sent Successfully!</h3>
+                                    <p style="margin: 15px 0;">Thank you for reaching out. We'll be in touch shortly to discuss how Frat Alert can help your chapter.</p>
+                                </div>
+                            `;
+                        }, function(error) {
+                            console.log('FAILED...', error);
+                            submitButton.disabled = false;
+                            submitButton.textContent = originalButtonText;
+                            alert('Failed to send message. Please try again later.');
+                        });
+                });
+            }
+            
+            // Mobile Menu Toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
