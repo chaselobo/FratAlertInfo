@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frat Alert - Opt-In Policy</title>
+    <link rel="icon" href="images/FratAlertIcon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .policy-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: var(--dark-accent);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .policy-section {
+            margin-bottom: 30px;
+        }
+        
+        .policy-section h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .policy-section p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .policy-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .policy-section li {
+            margin-bottom: 10px;
+        }
+        
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: var(--accent-color);
+        }
+        
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="images/fratalertnamelogo.png" alt="FratAlert Logo"></a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Opt-In Policy Section -->
+    <section class="policy-page" style="padding-top: 120px;">
+        <div class="container">
+            <h2 class="section-title">Opt-In Policy</h2>
+            
+            <div class="policy-container">
+                <div class="policy-section">
+                    <h3>Our Commitment to Consent</h3>
+                    <p>At Frat Alert, we believe in transparency and respect for individual privacy. Our opt-in policy ensures that all members receiving alerts have explicitly consented to be part of our notification system.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h3>How Our Opt-In Process Works</h3>
+                    <p>When a chapter subscribes to Frat Alert, we implement a strict opt-in process:</p>
+                    <ul>
+                        <li><strong>Initial Setup:</strong> Chapter representatives provide a list of executive members who need to receive alerts.</li>
+                        <li><strong>Verification:</strong> Each member receives a verification text message requiring them to respond with "YES" to confirm their consent.</li>
+                        <li><strong>Ongoing Consent:</strong> Members can opt out at any time by replying "STOP" to any alert message.</li>
+                        <li><strong>Periodic Renewal:</strong> Every semester, we request renewal of consent to ensure continued willingness to receive alerts.</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section">
+                    <h3>Privacy Protection</h3>
+                    <p>We take your privacy seriously:</p>
+                    <ul>
+                        <li>Phone numbers are stored securely and used exclusively for Frat Alert notifications.</li>
+                        <li>We never share, sell, or use your contact information for marketing purposes.</li>
+                        <li>All alert history is purged at the end of each semester to maintain data minimization.</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section">
+                    <h3>Compliance with Regulations</h3>
+                    <p>Our opt-in policy complies with telecommunications regulations, including the Telephone Consumer Protection Act (TCPA) and other applicable laws governing SMS communications.</p>
+                    <p>By maintaining strict opt-in procedures, we ensure that our service respects both legal requirements and individual preferences.</p>
+                </div>
+                
+                <a href="index.html" class="back-link">← Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Frat Alert. All Rights Reserved. <a href="opt-in-policy.html" style="margin-left: 10px;">Opt-In Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
