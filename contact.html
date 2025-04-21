@@ -84,7 +84,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <a href="index.html"><img src="images/FratAlertNameLogo.png" alt="FratAlert Logo"></a>
+                <a href="index.html"><img src="images/fratalertnamelogo.png" alt="FratAlert Logo"></a>
             </div>
             <div class="nav-links">
                 <a href="index.html#how-it-works">How It Works</a>
@@ -137,6 +137,13 @@
                         <textarea id="message" class="form-control" placeholder="Tell us about your chapter and what you're looking for..." required></textarea>
                     </div>
                     
+                    <div class="form-group" style="flex-direction: row; align-items: flex-start; gap: 15px;">
+                        <input type="checkbox" id="opt-in" class="form-control" style="width: 20px; height: 20px; margin-top: 3px;" required>
+                        <label for="opt-in" style="font-size: 0.9rem; font-weight: 400;">
+                            I consent to receive communications from Frat Alert regarding my inquiry. I understand that my information will be used as described in the <a href="opt-in-policy.html" style="color: var(--primary-color); text-decoration: underline;">Opt-In Policy</a>.
+                        </label>
+                    </div>
+                    
                     <button type="submit" class="btn btn-primary btn-large" style="margin-top: 20px;">Send Message</button>
                 </form>
                 
@@ -170,6 +177,7 @@
                     const phone = document.getElementById('phone').value;
                     const fraternity = document.getElementById('fraternity').value;
                     const message = document.getElementById('message').value;
+                    const optIn = document.getElementById('opt-in').checked ? "Yes" : "No";
                     
                     // Prepare template parameters
                     const templateParams = {
@@ -178,7 +186,8 @@
                         from_email: email,
                         phone: phone,
                         fraternity: fraternity,
-                        message: message
+                        message: message,
+                        opt_in: optIn
                     };
                     
                     // Show loading state
